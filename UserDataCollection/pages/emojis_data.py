@@ -7,7 +7,7 @@ import plotly.express as px
 
 df = pd.read_csv("Data/emoji_data.csv")
 
-img = image.imread("img\emoji.png")
+img = image.imread("img/emoji.png")
 st.set_page_config(layout="wide")
 st.header("Emoji's data")
 st.image(img)
