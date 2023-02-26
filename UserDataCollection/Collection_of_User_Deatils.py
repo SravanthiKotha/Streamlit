@@ -2,9 +2,15 @@ import streamlit as st
 import pandas as pd
 
 from matplotlib import image
+import os
 
-df1 = pd.read_csv("/Data/UserDetails.csv")
-st.image(image.imread("/img/images.jpeg"))
+# absolute path to this file
+FILE_DIR = os.path.dirname(os.path.abspath(__file__))
+# absolute path to this file's root directory
+PARENT_DIR = os.path.join(FILE_DIR, os.pardir)
+
+df1 = pd.read_csv(os.path.join(PARENT_DIR),"Data/UserDetails.csv")
+st.image(image.imread(os.path.join(PARENT_DIR),"img/images.jpeg"))
 st.header("This page will save your details!! \n Please provide your details as requested!!")
 name = st.text_input("please enter your name:")
 if(len(name)>0):
