@@ -5,12 +5,9 @@ from matplotlib import image
 import os
 
 # absolute path to this file
-FILE_DIR = os.path.dirname(os.path.abspath(__file__))
-# absolute path to this file's root directory
-PARENT_DIR = os.path.join(FILE_DIR, os.pardir)
-
-df1 = pd.read_csv(os.path.join(PARENT_DIR),"Data/UserDetails.csv")
-st.image(image.imread(os.path.join(PARENT_DIR),"img/images.jpeg"))
+current_file = os.path.dirname(os.path.abspath(__file__))
+df1 = pd.read_csv(os.path.join(current_file,"Data","UserDetails.csv"))
+st.image(image.imread(os.path.join(current_file,"img","images.jpeg")))
 st.header("This page will save your details!! \n Please provide your details as requested!!")
 name = st.text_input("please enter your name:")
 if(len(name)>0):
@@ -28,4 +25,4 @@ if(len(name)>0):
         if(len(address)>0):
             st.header("Your Details:")
             st.dataframe(df)
-            df1.to_csv("Data/UserDetails.csv",index=False)
+            df1.to_csv(os.path.join(current_file,"Data","UserDetails.csv"),index=False)

@@ -4,10 +4,17 @@ from matplotlib import image
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import os
 
-df = pd.read_csv("Data/emoji_data.csv")
+# absolute path to this file
+current_file = os.path.dirname(os.path.abspath(__file__))
+# absolute path to this file's root directory
+parent_dir = os.path.join(current_file, os.pardir)
 
-img = image.imread("img/emoji.png")
+
+df = pd.read_csv(os.path.join(parent_dir,"Data","emoji_data.csv"))
+
+img = image.imread(os.path.join(parent_dir,"img","emoji.png"))
 st.set_page_config(layout="wide")
 st.header("Emoji's data")
 st.image(img)
