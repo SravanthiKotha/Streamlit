@@ -3,8 +3,8 @@ import pandas as pd
 
 from matplotlib import image
 
-df1 = pd.read_csv("Data/UserDetails.csv")
-st.image(image.imread("img/images.jpeg"))
+df1 = pd.read_csv("/Data/UserDetails.csv")
+st.image(image.imread("/img/images.jpeg"))
 st.header("This page will save your details!! \n Please provide your details as requested!!")
 name = st.text_input("please enter your name:")
 if(len(name)>0):
